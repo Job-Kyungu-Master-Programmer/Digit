@@ -1,31 +1,15 @@
-# Digit - Be-Smart Application
+# Digit - Backend API
 
-Application complète de gestion d'entreprises et d'employés avec React (frontend) et Node.js/Express/MongoDB (backend).
+API Backend pour l'application Digit (Be-Smart) avec Node.js, Express, MongoDB et JWT.
 
-## 🚀 Structure du projet
+## 🚀 Installation
 
-```
-Digit/
-├── backend/          # API Node.js/Express
-├── clients/          # Application React
-└── README.md
-```
-
-## 📦 Installation et démarrage
-
-### Backend
-
-1. Aller dans le dossier backend :
-```bash
-cd backend
-```
-
-2. Installer les dépendances :
+1. Installer les dépendances :
 ```bash
 npm install
 ```
 
-3. Créer un fichier `.env` :
+2. Créer un fichier `.env` :
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/be-smart
@@ -34,70 +18,24 @@ JWT_EXPIRE=7d
 NODE_ENV=development
 ```
 
-4. Démarrer MongoDB (si pas déjà démarré)
+3. Démarrer MongoDB (assurez-vous que MongoDB est installé et en cours d'exécution)
 
-5. Démarrer le serveur :
+4. Démarrer le serveur :
 ```bash
 npm start
-# ou pour le développement
+```
+
+Pour le développement avec rechargement automatique :
+```bash
 npm run dev
 ```
 
-### Frontend
+## 📁 Structure
 
-1. Aller dans le dossier clients :
-```bash
-cd clients
-```
-
-2. Installer les dépendances :
-```bash
-npm install
-```
-
-3. Créer un fichier `.env` (optionnel, les valeurs par défaut fonctionnent) :
-```env
-REACT_APP_API_URL=http://localhost:5000/api
-```
-
-4. Démarrer l'application :
-```bash
-npm start
-```
-
-## ✨ Fonctionnalités
-
-- ✅ Authentification (Login/Register) avec JWT
-- ✅ Gestion des compagnies (CRUD)
-- ✅ Gestion des employés (CRUD)
-- ✅ Upload d'images (logos, avatars)
-- ✅ Rôles utilisateurs (SuperAdmin, Company Admin, Employee)
-- ✅ Protection des routes avec authentification
-- ✅ Profil employé public (accessible via QR code)
-- ✅ Design responsive (mobile, tablette, desktop)
-
-## 🛠 Technologies
-
-### Backend
-- Node.js
-- Express
-- MongoDB (Mongoose)
-- JWT (jsonwebtoken)
-- bcryptjs
-- multer (upload de fichiers)
-
-### Frontend
-- React
-- React Router
-- SCSS
-- React Icons
-
-## 📱 Responsive
-
-L'application est entièrement responsive et optimisée pour :
-- 📱 Mobile (≤ 480px)
-- 📱 Tablette (≤ 768px)
-- 💻 Desktop (> 768px)
+- `models/` - Modèles MongoDB (User, Company, Employee)
+- `routes/` - Routes API (auth, companies, employees, users)
+- `middleware/` - Middlewares (auth, error handling, upload)
+- `uploads/` - Dossier pour les fichiers uploadés (créé automatiquement)
 
 ## 🔗 API Endpoints
 
@@ -112,12 +50,15 @@ L'application est entièrement responsive et optimisée pour :
 - `POST /api/companies` - Créer une compagnie (SuperAdmin)
 - `PUT /api/companies/:id` - Mettre à jour une compagnie
 - `DELETE /api/companies/:id` - Supprimer une compagnie (SuperAdmin)
+- `PATCH /api/companies/:id/status` - Changer le statut (SuperAdmin)
 
 ### Employés
 - `GET /api/employees` - Liste des employés
 - `GET /api/employees/:id` - Détails d'un employé (PUBLIQUE - pour QR code)
+- `GET /api/employees/company/:companyId` - Liste des employés d'une compagnie
 - `POST /api/employees` - Créer un employé
 - `PUT /api/employees/:id` - Mettre à jour un employé
+- `PUT /api/employees/:id/background` - Mettre à jour l'image de fond
 - `DELETE /api/employees/:id` - Supprimer un employé
 
 ## 👥 Rôles
@@ -125,6 +66,23 @@ L'application est entièrement responsive et optimisée pour :
 - `superadmin` - Accès complet
 - `company_admin` - Gestion de sa compagnie et ses employés
 - `employee` - Accès à son propre profil
+
+## 🔐 Authentification
+
+Les routes protégées nécessitent un token JWT dans le header :
+```
+Authorization: Bearer <token>
+```
+
+## 📦 Technologies
+
+- Node.js
+- Express
+- MongoDB (Mongoose)
+- JWT (jsonwebtoken)
+- bcryptjs
+- multer (upload de fichiers)
+- express-validator
 
 ## 📄 Licence
 
