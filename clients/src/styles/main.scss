@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+$color-primary: #2176FF;
+$color-primary-dark: #6d7ff3;
+
+
+@import "./components/login.scss";
+@import "./components/sidebar";
+@import "./components/home";
+@import "./components/employees";
+@import "./components/header.scss";
+@import "./components/profilemployee.scss";
+@import "./components/company";
+@import "./components//createCompany";
+@import "./components/listcompany";
+@import "./components/CreateCompanyuser";
+
+
+
+
+
+body {
+    background: white;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.25vw;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+
+    @media (max-width: 1200px) {
+        font-size: calc(0 * 0vw + 1em);
+    }
+
+    @media (max-width: 768px) {
+        font-size: calc(0 * 0vw + 1.2em);
+    }
+
+    @media (max-width: 480px) {
+        font-size: calc(0 * 0vw + 1.4em);
+    }
+
+    &.sidebar-open {
+        overflow: hidden;
+    }
+}
+
+
+.app {
+    width: 100%;
+    height: 100%;
+
+    &__sides {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    
+    @media (max-width: 800px) {
+      width: 100%;
+      font-size: calc(0 * 0vw + 1.3em);
+    }
+}
