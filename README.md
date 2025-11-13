@@ -1,17 +1,17 @@
-# Be-Smart Application
+# Digit - Be-Smart Application
 
 Application complète de gestion d'entreprises et d'employés avec React (frontend) et Node.js/Express/MongoDB (backend).
 
-## Structure du projet
+## 🚀 Structure du projet
 
 ```
-be-smart/
+Digit/
 ├── backend/          # API Node.js/Express
 ├── clients/          # Application React
 └── README.md
 ```
 
-## Installation et démarrage
+## 📦 Installation et démarrage
 
 ### Backend
 
@@ -65,16 +65,18 @@ REACT_APP_API_URL=http://localhost:5000/api
 npm start
 ```
 
-## Fonctionnalités
+## ✨ Fonctionnalités
 
-- Authentification (Login/Register) avec JWT
-- Gestion des compagnies (CRUD)
-- Gestion des employés (CRUD)
-- Upload d'images (logos, avatars)
-- Rôles utilisateurs (SuperAdmin, Company Admin, Employee)
-- Protection des routes avec authentification
+- ✅ Authentification (Login/Register) avec JWT
+- ✅ Gestion des compagnies (CRUD)
+- ✅ Gestion des employés (CRUD)
+- ✅ Upload d'images (logos, avatars)
+- ✅ Rôles utilisateurs (SuperAdmin, Company Admin, Employee)
+- ✅ Protection des routes avec authentification
+- ✅ Profil employé public (accessible via QR code)
+- ✅ Design responsive (mobile, tablette, desktop)
 
-## Technologies
+## 🛠 Technologies
 
 ### Backend
 - Node.js
@@ -90,4 +92,40 @@ npm start
 - SCSS
 - React Icons
 
+## 📱 Responsive
 
+L'application est entièrement responsive et optimisée pour :
+- 📱 Mobile (≤ 480px)
+- 📱 Tablette (≤ 768px)
+- 💻 Desktop (> 768px)
+
+## 🔗 API Endpoints
+
+### Authentification
+- `POST /api/auth/register` - Inscription
+- `POST /api/auth/login` - Connexion
+- `GET /api/auth/me` - Obtenir l'utilisateur actuel
+
+### Compagnies
+- `GET /api/companies` - Liste des compagnies
+- `GET /api/companies/:id` - Détails d'une compagnie
+- `POST /api/companies` - Créer une compagnie (SuperAdmin)
+- `PUT /api/companies/:id` - Mettre à jour une compagnie
+- `DELETE /api/companies/:id` - Supprimer une compagnie (SuperAdmin)
+
+### Employés
+- `GET /api/employees` - Liste des employés
+- `GET /api/employees/:id` - Détails d'un employé (PUBLIQUE - pour QR code)
+- `POST /api/employees` - Créer un employé
+- `PUT /api/employees/:id` - Mettre à jour un employé
+- `DELETE /api/employees/:id` - Supprimer un employé
+
+## 👥 Rôles
+
+- `superadmin` - Accès complet
+- `company_admin` - Gestion de sa compagnie et ses employés
+- `employee` - Accès à son propre profil
+
+## 📄 Licence
+
+ISC
